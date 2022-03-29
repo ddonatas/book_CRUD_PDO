@@ -1,0 +1,19 @@
+<HTML>
+	<HEAD>
+		<TITLE> Book list </TITLE>
+		<META charset="UTF-8">
+	</HEAD>
+
+	<BODY>
+		<p ALIGN=center> Book list: </p>
+		<!-- method  post OR  get-->
+		<FORM METHOD=post  ACTION="show.php">
+				Title: <INPUT TYPE="text" NAME="title" SIZE="30" MAXLENGTH="25" ONCHANGE="var pattern=/[0-9]/; if (pattern.test(this.value)) 	alert ('Netinkamas vardas.')">
+			<br>Author: <INPUT TYPE="text" NAME="author" >
+
+
+			<br> <INPUT TYPE="submit" VALUE="OK">
+			<INPUT TYPE="reset" VALUE="Reset">
+		</FORM>
+	</BODY>
+</HTML>

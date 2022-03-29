@@ -1,5 +1,4 @@
 <?php
-//prisijungimas prie testdb
 include "config.php";
 	$mysqli=mysqli_connect($adress, $user,  $pass, $database);
 
@@ -12,20 +11,22 @@ include "config.php";
 	else 	
 
 	{
+	$id=$_GET["id"];
 	$title=$_GET["title"];
 	$author=$_GET["author"];
-	//print ($title." ");
-	$sql="INSERT INTO book (title, author) VALUES ('".$title."','".$author."')";
+	
+	$sql=("UPDATE book SET title ='$title', author ='$author' WHERE id=$id");
 	$res=mysqli_query($mysqli, $sql);
 	
 		if ($res) 
 		{
 			//include('duomenys.php');
-			print ("Stored");
+			print ("Updated ");
+			print ("<a href=list.php> List </a>");	
 		}
 		else
 		{
-			print("error ");
+			print("Error ");
 		}
 	}
 

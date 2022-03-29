@@ -1,5 +1,5 @@
 <?php
-// prisijungimas prie 
+
 include "config.php";
 	
 	$mysqli=mysqli_connect($adress, $user,  $pass, $database);
@@ -13,7 +13,8 @@ include "config.php";
 	else 	
 
 	{
-	$sql="SELECT * FROM book";
+		$id=$_GET["id"];
+	$sql="SELECT * FROM book where id=$id";
 	$res=mysqli_query($mysqli, $sql);
 
 	if ($res) {
@@ -25,10 +26,15 @@ include "config.php";
 	$id=$newArray['id'];
 	$name=$newArray['author'];
 	$title=$newArray['title'];
-	//print ("CSS ")
-	print ($name. " " .$title);
-	print ("<a href=remove.php?id=$id> Remove </a>");
-	print ("<a href=edit.php?id=$id> Edit </a>"."<br/>");
+		print ("<FORM METHOD=get  ACTION='update.php'>");
+				print("<INPUT TYPE='hidden' NAME='id' value='$id'>");
+				print("Title: <INPUT TYPE='text' NAME='title' value='$title'>");
+				print ("<br>Author: <INPUT TYPE='text' NAME='author' value='$name' > ");
+				print ("<br> <INPUT TYPE='submit' VALUE='Update'>");
+				print 	("<INPUT TYPE='reset' VALUE='Reset'>");
+		print ("</FORM>");
+	
+	
 	}
 
 	}else{
