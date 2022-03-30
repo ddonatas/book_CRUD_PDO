@@ -20,7 +20,6 @@ include "config.php";
 		if ($res) 
 		{
 			print ("is removed");
-			print ("<a href=list.php> List </a>");
 		}
 		else
 		{

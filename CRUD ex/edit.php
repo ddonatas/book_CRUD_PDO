@@ -1,9 +1,19 @@
 <?php
 
-include "connect.php";
+include "config.php";
 	
-	
-	$id=$_GET["id"];
+	$mysqli=mysqli_connect($adress, $user,  $pass, $database);
+
+    if (mysqli_connect_errno())	
+	{
+	printf("Prisijungimo klaida");
+	exit();
+	} 
+
+	else 	
+
+	{
+		$id=$_GET["id"];
 	$sql="SELECT * FROM book where id=$id";
 	$res=mysqli_query($mysqli, $sql);
 
@@ -31,7 +41,7 @@ include "connect.php";
 	printf("No row");
 	}
 
-	
+	}
 
 
 ?>

@@ -1,16 +1,6 @@
 <?php
-include "config.php";
-	$mysqli=mysqli_connect($adress, $user,  $pass, $database);
+include "connect.php";
 
-	if (mysqli_connect_errno())	
-	{
-	printf("Prisijungimo klaida");
-	exit();
-	} 
-
-	else 	
-
-	{
 	$id=$_GET["id"];
 	$title=$_GET["title"];
 	$author=$_GET["author"];
@@ -28,7 +18,7 @@ include "config.php";
 		{
 			print("Error ");
 		}
-	}
+	
 
 
 ?>

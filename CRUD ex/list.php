@@ -1,8 +1,18 @@
 <?php
-include "connect.php";
+// prisijungimas prie 
+include "config.php";
+	
+	$mysqli=mysqli_connect($adress, $user,  $pass, $database);
 
-print ("<a href=form.html> Add new </a> <br>");
+    if (mysqli_connect_errno())	
+	{
+	printf("Prisijungimo klaida");
+	exit();
+	} 
 
+	else 	
+
+	{
 	$sql="SELECT * FROM book";
 	$res=mysqli_query($mysqli, $sql);
 
@@ -17,15 +27,15 @@ print ("<a href=form.html> Add new </a> <br>");
 	$title=$newArray['title'];
 	//print ("CSS ")
 	print ($name. " " .$title);
-	print ("<a href=remove.php?id=$id> Remove</a>". ' ');
-	print ("<a href=edit.php?id=$id>Edit</a>"."<br/>");
+	print ("<a href=remove.php?id=$id> Remove </a>");
+	print ("<a href=edit.php?id=$id> Edit </a>"."<br/>");
 	}
 
 	}else{
 	printf("No row");
 	}
 
-	
+	}
 
 
 ?>

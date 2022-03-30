@@ -1,5 +1,4 @@
 <?php
-//prisijungimas prie testdb
 include "config.php";
 	$mysqli=mysqli_connect($adress, $user,  $pass, $database);
 
@@ -13,18 +12,21 @@ include "config.php";
 
 	{
 	$id=$_GET["id"];
-	print ($id." ");
-	$sql="DELETE FROM book WHERE id=$id";
+	$title=$_GET["title"];
+	$author=$_GET["author"];
+	
+	$sql=("UPDATE book SET title ='$title', author ='$author' WHERE id=$id");
 	$res=mysqli_query($mysqli, $sql);
 	
 		if ($res) 
 		{
-			print ("is removed");
-			print ("<a href=list.php> List </a>");
+			//include('duomenys.php');
+			print ("Updated ");
+			print ("<a href=list.php> List </a>");	
 		}
 		else
 		{
-			print("is not removed");
+			print("Error ");
 		}
 	}
 

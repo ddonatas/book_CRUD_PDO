@@ -1,17 +1,6 @@
 <?php
-//prisijungimas prie testdb
-include "config.php";
-	$mysqli=mysqli_connect($adress, $user,  $pass, $database);
+include "connect.php";
 
-	if (mysqli_connect_errno())	
-	{
-	printf("Prisijungimo klaida");
-	exit();
-	} 
-
-	else 	
-
-	{
 	$title=$_GET["title"];
 	$author=$_GET["author"];
 	//print ($title." ");
@@ -22,12 +11,13 @@ include "config.php";
 		{
 			//include('duomenys.php');
 			print ("Stored");
+			print ("<a href=list.php> List </a>");
 		}
 		else
 		{
 			print("Error ");
 		}
-	}
+	
 
 
 ?>

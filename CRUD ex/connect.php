@@ -12,19 +12,20 @@ include "config.php";
 	else 	
 
 	{
-	$id=$_GET["id"];
-	print ($id." ");
-	$sql="DELETE FROM book WHERE id=$id";
+	$title=$_GET["title"];
+	$author=$_GET["author"];
+	//print ($title." ");
+	$sql="INSERT INTO book (title, author) VALUES ('".$title."','".$author."')";
 	$res=mysqli_query($mysqli, $sql);
 	
 		if ($res) 
 		{
-			print ("is removed");
-			print ("<a href=list.php> List </a>");
+			//include('duomenys.php');
+			print ("Stored");
 		}
 		else
 		{
-			print("is not removed");
+			print("error ");
 		}
 	}
 
