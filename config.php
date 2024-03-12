@@ -1,7 +1,7 @@
 <?php
 	$adress="localhost";
 	$user= "root";
-	$pass= "root";
+	$pass= "";
 	$database="book";
 	
 ?>
